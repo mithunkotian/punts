@@ -1,0 +1,35 @@
+<h1>Listing histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Pointsput</th>
+      <th>Pointsgot</th>
+      <th>Result</th>
+      <th>Team</th>
+      <th>Mid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%= history.uid %></td>
+        <td><%= history.pointsput %></td>
+        <td><%= history.pointsgot %></td>
+        <td><%= history.result %></td>
+        <td><%= history.team %></td>
+        <td><%= history.mid %></td>
+        <td><%= link_to 'Show', history %></td>
+        <td><%= link_to 'Edit', edit_history_path(history) %></td>
+        <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New History', new_history_path %>
